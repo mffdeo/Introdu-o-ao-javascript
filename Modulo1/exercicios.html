@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>Curso javascript</title>
+    </head>
+    <style>
+        *  {
+            margin:0;
+            padding:0;
+            }
+        
+        html, body {height:100%;}
+
+        h1,h2,p{
+            text-align: center;
+        }
+        .atividade{
+           
+            min-height:50%;
+            position:relative;
+            top: 50px;
+            width:800px;
+            margin:auto;
+            text-align: center;
+        }
+    </style>
+    <body>
+        <h1>Introdução ao javascript</h1>
+        <h2>Exercícios: Módulo 01</h2>
+        <p>Veja o resultado no console pressionando botão<b> Executar</b></p>
+        <section class="atividade">
+
+            <h3>1º exercício</h3>
+
+            <button onclick="executar1()">Executar</button>
+
+            <h3>2º exercício</h3>
+
+            <button onclick="executar2()">Executar</button>
+ 
+            <h3>3º exercício</h3>
+
+            <button onclick="executar3()">Executar</button>
+
+            <h3>4º exercício</h3>
+
+            <button onclick="executar4()">Executar</button> 
+            
+            <h3>5º exercício</h3>
+
+            <button onclick="executar5()">Executar</button>            
+        </section>
+
+        <script>
+        // PRIMEIRA QUESTAO
+            var endereco = {
+                            rua: "Rua dos pinheiros",
+                            numero: 1293,
+                            bairro: "Centro",
+                            cidade: "São Paulo",
+                            uf: "SP"
+                            };
+            
+            function operacao(objeto){
+                var resultado;
+                return resultado = "O usuário mora em "+objeto.cidade+"/"+objeto.uf+", no bairro "+objeto.bairro+", na rua \""+objeto.rua+"\" com nº " +objeto.numero; 
+            } 
+            var resultado = operacao(endereco);
+           
+            function executar1() {
+                console.log(resultado);
+
+            } 
+
+        // SEGUNDA QUESTAO
+            function pares(x, y) {
+               var arr = [];
+                for(i=x;i<=y;i++){
+                    if(i%2==0){
+                        arr.push(i);
+                        
+                    }
+                }
+                return arr;   
+              
+            }   
+            function executar2() {
+               
+               console.log(pares(32, 321));
+            }     
+        //  TERCEIRA QUESTAO
+            function temHabilidade(skills) {
+                if(skills.indexOf("Javascript")>-1){
+                    return true;
+                }else{
+                    return false;
+                }
+            }
+            var skills = ["Javascript", "ReactJS", "React Native"];
+            function executar3(){
+               
+                console.log(temHabilidade(skills)); // true ou false
+            }
+            
+        // QUARTA QUESTAO
+        function experiencia(anos) {
+            
+                if(anos >= 0 && anos < 1){
+                    return "Iniciandte";
+                }else{
+                    if(anos >= 1 && anos < 3){
+                        return "Intermediário";
+                    }else{
+                        if(anos >= 3 && anos <= 6){
+                            return "Avançado"; 
+                        }else{
+                            if(anos > 6 ){
+                                return "Jedi Master";
+                            }
+                        }
+                    }
+                }
+  
+        }
+        var anosEstudo = 7;
+        function executar4(){
+            
+            console.log(experiencia(anosEstudo));
+        }
+        // QUINTA QUESTAO 
+
+        var usuarios = [
+            {
+                nome: "Diego",
+                habilidades: ["Javascript", "ReactJS", "Redux"]
+            },
+            {
+                nome: "Gabriel",
+                habilidades: ["VueJS", "Ruby on Rails", "Elixir"]
+            }
+        ];    
+        function executar5(){
+            
+            for (const usuario of usuarios) {
+                
+                console.log(
+                "O " +usuario.nome+ " possui as habilidades: " + usuario.habilidades.join()
+                );
+            }
+          
+        }
+
+                                           
+        </script>
+    </body>
+
+    
+</html>

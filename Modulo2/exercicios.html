@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>Curso javascript</title>
+    </head>
+    <style>
+        *  {
+            margin:0;
+            padding:0;
+            }
+        
+        html, body {height:100%;}
+
+        h1,h2,p{
+            text-align: center;
+        }
+        .atividade{
+           
+            min-height:50%;
+            position:relative;
+            top: 50px;
+            width:800px;
+            margin:auto;
+            text-align: center;
+        }
+    </style>
+    <body>
+        <h1>Introdução ao javascript</h1>
+        <h2>Exercícios: Módulo 02</h2>
+        <p>Veja o resultado no console pressionando botão<b> Executar</b></p>
+        <section class="atividade">
+
+            <h3>1º exercício</h3>
+
+            <button class="botao">Executar</button>
+            <div class="box"></div>
+
+            <h3>2º exercício</h3>
+
+            <button class="botao">Executar</button>
+            <div class="box"></div>
+
+            <h3>3º exercício</h3>
+
+            <button class="botao">Executar</button>
+            <div class="box"></div>
+
+            <h3>4º exercício</h3>
+
+            <button class="botao">Executar</button>
+            <div class="box"></div>
+            
+        </section>
+        
+        <script>
+        // PRIMEIRA QUESTAO
+//         Crie um botão que ao ser clicado cria um novo elemento em tela com a forma de um quadrado
+//         vermelho com 100px de altura e largura. Sempre que o botão for clicado um novo quadrado deve
+//          aparecer na tela
+
+            var btn1 = document.querySelectorAll('button.botao')[0];
+            var box1 = document.querySelectorAll('div.box')[0];
+            btn1.onclick = function (){
+                var boxElement = document.createElement('div');
+                boxElement.style.width = '100px';
+                boxElement.style.height = '100px';
+                boxElement.style.backgroundColor = '#F00';
+                boxElement.style.display = 'inline-block'
+                boxElement.style.margin = '10px';
+                box1.appendChild(boxElement);
+            }
+           
+
+        // SEGUNDA QUESTAO
+        // Utilizando o resultado do primeiro desafio, toda vez que o usuário passar o mouse por cima de
+        // algum quadrado troque sua cor para uma cor aleatória gerada pela função abaixo:   
+        var btn2 = document.querySelectorAll('button.botao')[1];
+        var box2 = document.querySelectorAll('div.box')[1];
+        function getRandomColor() {
+            var letters = "0123456789ABCDEF";
+            var color = "#";
+            for (var i = 0; i < 6; i++) {
+                color += letters[Math.floor(Math.random() * 16)];
+            }
+            return color;
+        }
+           
+        
+        btn2.onclick=function() {
+            var boxElement = document.createElement('div');
+            boxElement.style.width = '100px';
+            boxElement.style.height = '100px';
+            boxElement.style.backgroundColor = '#F00';
+            boxElement.style.display = 'inline-block'
+            boxElement.style.margin = '10px';
+            box2.appendChild(boxElement);             
+            boxElement.onmouseover = function(){
+                var newColor = getRandomColor(); // #E943F0 
+                boxElement.style.backgroundColor = newColor;
+            }             
+        }     
+        //  TERCEIRA QUESTAO
+        // A partir do seguinte vetor:
+        // var nomes = ["Diego", "Gabriel", "Lucas"];
+        // Preencha uma lista (<ul>) no HTML com os itens da seguinte forma:
+        // ● Diego
+        // ● Gabriel
+        // ● Lucas
+        var box3 = document.querySelectorAll('div.box')[2];
+        var btn3 = document.querySelectorAll('button.botao')[2];    
+            var nomes = ["Diego", "Gabriel", "Lucas"];
+            btn3.onclick=function(){
+                var ulElement = document.createElement('ul');
+                for(const nome of nomes){
+                   var liElement = document.createElement('li');
+                   liElement.innerHTML = nome;
+                   ulElement.appendChild(liElement);
+                }
+                box3.style.width = '100px';
+                box3.style.height = '100px';
+                box3.style.margin='25px auto';
+                box3.appendChild(ulElement);
+                btn3.disabled = true;
+            }
+            
+            //<button type="button" disabled>Click Me!</button>
+        // QUARTA QUESTAO
+ 
+        var box4 = document.querySelectorAll('div.box')[3];
+        var btn4 = document.querySelectorAll('button.botao')[3];    
+            var nomes = ["Diego", "Gabriel", "Lucas"];
+            var div1 = document.createElement('div');
+            btn4.onclick=function(){
+                var ulElement = document.createElement('ul');
+                for(const nome of nomes){
+                   var liElement = document.createElement('li');
+                   liElement.innerHTML = nome;
+                   ulElement.appendChild(liElement);
+                }
+                box4.style.width = '100%';
+                box4.style.height = '100px';
+                box4.style.margin='25px auto';
+                div1.appendChild(ulElement);
+                box4.appendChild(div1);
+                var buttonElement = document.createElement('button');
+                var inputElement = document.createElement('input');
+               
+                var div = document.createElement('div');
+                buttonElement.innerHTML = 'Adicionar';
+                div.appendChild(inputElement);
+                div.appendChild(buttonElement);
+                
+                div.style.display = "inline-block";
+                div.style.float='right';
+                div1.style.display = "inline-block";
+                box4.appendChild(div);
+                btn4.disabled = true;
+                buttonElement.onclick = function(){
+                    var text = inputElement.value;
+                    var liElement = document.createElement('li');
+                    liElement.innerHTML = text;
+                    ulElement.appendChild(liElement);
+                    div1.appendChild(ulElement); 
+                    box4.appendChild(div1);                  
+                    inputElement.value = '';
+                }
+                
+            }
+ 
+
+
+                                           
+        </script>
+    </body>
+
+    
+</html>
